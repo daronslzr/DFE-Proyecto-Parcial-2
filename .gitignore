@@ -1,0 +1,9 @@
+# dependencias
+/node_modules
+
+
+### SASS ###
+.sass-cache
+*.css.map
+*.sass.map
+*.scss.map
