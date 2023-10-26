@@ -3,7 +3,7 @@
 h1{
     border-bottom: 5px solid $colorPrincipal;
 }
-
+/*#region FORMATO DE CADA TAREA*/
 .tarea-container{
     background-color: $colorEstable;
     display: flex;
@@ -69,3 +69,4 @@ input[type="checkbox"]{
     color: darken($colorAcento, 10%);
 }
 }
+/*#endregion FORMATO DE CADA TAREA*/

@@ -76,6 +76,7 @@ h1 {
   border-bottom: 5px solid #B1AFFF;
 }
 
+/*#region FORMATO DE CADA TAREA*/
 .tarea-container {
   background-color: #C8FFD4;
   display: flex;
@@ -141,3 +142,5 @@ input[type="checkbox"] {
 .fa-pen-to-square:hover {
   color: #5ac5ff;
 }
+
+/*#endregion FORMATO DE CADA TAREA*/

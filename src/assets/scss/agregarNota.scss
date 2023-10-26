@@ -1,5 +1,6 @@
 @import 'variables';
 
+//Container del boton Agregar Tarea
 #agregarNota-container{
     width: 100%;
     height: auto;
@@ -11,6 +12,7 @@
     border-radius: 5px;
 }
 
+//boton Agregar Tarea
 #botonAgregarNota{
     padding: 0.75rem;
     background-color: $colorAcento;
