@@ -89,6 +89,7 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  padding-bottom: 0.25rem;
 }
 
 .informacionTarea {
@@ -96,16 +97,21 @@ h1 {
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 
 input[type="checkbox"] {
-  width: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
 }
 
 .descripcionTarea {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-grow: 1;
+  padding: 1rem;
 }
 
 .tituloDescripcion {
@@ -113,7 +119,25 @@ input[type="checkbox"] {
   flex-direction: column;
 }
 
+.titulo {
+  font-size: 1.5rem;
+}
+
+.descripcion {
+  font-weight: 300;
+  text-wrap: wrap;
+}
+
+.dueDate {
+  font-weight: 300;
+  color: #666666;
+}
+
 .fa-pen-to-square {
-  color: #FFF;
+  color: #8DD7FF;
   font-size: 3rem;
+}
+
+.fa-pen-to-square:hover {
+  color: #5ac5ff;
 }

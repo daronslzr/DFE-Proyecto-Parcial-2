@@ -17,22 +17,28 @@ h1{
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    padding-bottom: 0.25rem;
 }
 .informacionTarea{
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
 }
 
 input[type="checkbox"]{
-    width: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
 }
 
 .descripcionTarea{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-grow: 1;
+    padding: 1rem;
 }
 
 .tituloDescripcion{
@@ -40,8 +46,26 @@ input[type="checkbox"]{
     flex-direction: column;
 }
 
+.titulo{
+    font-size: 1.5rem;
+}
+
+.descripcion{
+    font-weight: 300;
+    text-wrap: wrap;
+}
+
+.dueDate{
+    font-weight: 300;
+    color: lighten($negro, 40%);
+}
 
 .fa-pen-to-square{
- color: $blanco;
+ color: $colorAcento;
  font-size: 3rem;
+ //padding-right: 1rem;
+
+ &:hover{
+    color: darken($colorAcento, 10%);
+}
 }
