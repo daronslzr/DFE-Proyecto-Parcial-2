@@ -1,0 +1,17 @@
+@import 'variables';
+
+header{
+    width: 100%;
+    height: $header-height;
+    position:fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $colorPrincipal;
+    
+
+    img{
+        height: 70px;
+        width: auto;
+    }
+}

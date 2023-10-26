@@ -1,0 +1,47 @@
+@import 'variables';
+
+h1{
+    border-bottom: 5px solid $colorPrincipal;
+}
+
+.tarea-container{
+    background-color: $colorEstable;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.prioridadTag{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.informacionTarea{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+input[type="checkbox"]{
+    width: 2rem;
+}
+
+.descripcionTarea{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tituloDescripcion{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.fa-pen-to-square{
+ color: $blanco;
+ font-size: 3rem;
+}

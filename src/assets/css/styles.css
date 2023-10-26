@@ -1,0 +1,119 @@
+@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap';
+/*#region GENERAL*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  color: #000;
+}
+
+main {
+  padding: 2rem;
+  padding-top: 122px;
+  background-color: #FFF;
+}
+
+section {
+  padding-top: 2rem;
+}
+
+/*#endregion GENERAL*/
+/*#region ENCABEZADOS*/
+h1 {
+  font-size: 2.75rem;
+  color: #B1AFFF;
+  font-weight: 500;
+}
+
+/*#endregion ENCABEZADOS*/
+header {
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #B1AFFF;
+}
+
+header img {
+  height: 70px;
+  width: auto;
+}
+
+#agregarNota-container {
+  width: 100%;
+  height: auto;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+#botonAgregarNota {
+  padding: 0.75rem;
+  background-color: #8DD7FF;
+  color: #FFF;
+  font-weight: 500;
+  font-size: 1.25rem;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+}
+
+#botonAgregarNota:hover {
+  background-color: #5ac5ff;
+}
+
+h1 {
+  border-bottom: 5px solid #B1AFFF;
+}
+
+.tarea-container {
+  background-color: #C8FFD4;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.prioridadTag {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.informacionTarea {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+input[type="checkbox"] {
+  width: 2rem;
+}
+
+.descripcionTarea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tituloDescripcion {
+  display: flex;
+  flex-direction: column;
+}
+
+.fa-pen-to-square {
+  color: #FFF;
+  font-size: 3rem;
+}
