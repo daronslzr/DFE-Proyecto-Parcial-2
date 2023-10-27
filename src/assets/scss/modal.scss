@@ -9,3 +9,47 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    //overflow-y: scroll;
+    width: 40%;
+
+    h2{
+        margin-bottom: 1rem;
+    }
+}
+
+#tarea-form{
+    display: flex;
+    flex-direction: column;
+
+    textarea{
+        resize: none;
+    }
+}
+
+.form-field{
+    margin-bottom: 1rem;
+    font-family: $font-family;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 2px solid $colorPrincipal;
+}
+
+#eliminarTareaBoton{
+    background-color: $colorCritico;
+    margin-top: 1rem;
+
+    &:hover {
+        background-color: darken($colorCritico, 10%);
+    }
+}

@@ -25,13 +25,38 @@ section {
 
 /*#endregion GENERAL*/
 /*#region ENCABEZADOS*/
+h1,
+h2 {
+  color: #B1AFFF;
+}
+
 h1 {
   font-size: 2.75rem;
-  color: #B1AFFF;
   font-weight: 500;
 }
 
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
 /*#endregion ENCABEZADOS*/
+/*#region BOTONES*/
+button {
+  padding: 0.75rem;
+  background-color: #8DD7FF;
+  color: #FFF;
+  font-weight: 500;
+  font-size: 1.25rem;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #5ac5ff;
+}
+
+/*#endregion BOTONES*/
 header {
   width: 100%;
   height: 90px;
@@ -56,20 +81,6 @@ header img {
   align-items: center;
   padding: 1rem;
   border-radius: 5px;
-}
-
-#botonAgregarNota {
-  padding: 0.75rem;
-  background-color: #8DD7FF;
-  color: #FFF;
-  font-weight: 500;
-  font-size: 1.25rem;
-  font-family: "Poppins", sans-serif;
-  border-radius: 5px;
-}
-
-#botonAgregarNota:hover {
-  background-color: #5ac5ff;
 }
 
 h1 {
@@ -144,3 +155,55 @@ input[type="checkbox"] {
 }
 
 /*#endregion FORMATO DE CADA TAREA*/
+.modal-background {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 40%;
+}
+
+.modal h2 {
+  margin-bottom: 1rem;
+}
+
+#tarea-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#tarea-form textarea {
+  resize: none;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 2px solid #B1AFFF;
+}
+
+#eliminarTareaBoton {
+  background-color: #FFA69C;
+  margin-top: 1rem;
+}
+
+#eliminarTareaBoton:hover {
+  background-color: #ff7869;
+}

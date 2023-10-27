@@ -45,9 +45,41 @@
             </div>
         </section>
 
-        <div id="modal-background" class="modal-background"></div>
+        <div id="modal-background" class="modal-background">
 
-        
+        </div>
+
+        <div id="modal" class="modal">
+            <h2>Nueva tarea</h2>
+
+            <form id="tarea-form" class="form-section">
+                <label for="titulo-field">Titulo de la Tarea:</label>
+                <input type="text" id="titulo-field" class="form-field" required>
+
+                <label for="descripcion-field">Descripcion de la Tarea:</label>
+                <textarea id="descripcion-field" class="form-field" required></textarea>
+
+                <label for="prioridad-field">Prioridad:</label>
+                <select id="prioridad-field" class="form-field" required>
+                    <option value="baja">Baja</option>
+                    <option value="media">Media</option>
+                    <option value="alta">Alta</option>
+                </select>
+
+                <label for="tag-field">Etiqueta:</label>
+                <input type="text" id="tag-field" class="form-field" required>
+
+                <label for="date-field">Due Date:</label>
+                <input type="date" id="date-field" class="form-field" required>
+
+                <button type="submit">Guardar Tarea</button>
+
+                <button id="eliminarTareaBoton">Eliminar Tarea</button>
+
+            </form>
+        </div>
+
+
     </main>
 
     <script src="./shared/util.js"></script>

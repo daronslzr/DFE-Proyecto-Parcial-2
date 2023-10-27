@@ -11,18 +11,3 @@
     padding: 1rem;
     border-radius: 5px;
 }
-
-//boton Agregar Tarea
-#botonAgregarNota{
-    padding: 0.75rem;
-    background-color: $colorAcento;
-    color: $blanco;
-    font-weight: 500;
-    font-size: 1.25rem;
-    font-family: $font-family;
-    border-radius: 5px;
-
-    &:hover{
-        background-color: darken($colorAcento, 10%);
-    }
-}

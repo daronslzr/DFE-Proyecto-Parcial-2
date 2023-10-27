@@ -42,4 +42,16 @@ function displayTareas(tareas) {
     })
 }
 
+const modal = document.getElementById("botonAgregarNota");
+modal.addEventListener('click',() =>{
+    document.getElementById('modal-background').style.display = 'block';
+    document.getElementById('modal').style.display = 'block';
+})
+
+const cerrarModal = document.getElementById("modal-background");
+cerrarModal.addEventListener('click',() =>{
+    document.getElementById('modal-background').style.display = 'none';
+    document.getElementById('modal').style.display = 'none';
+})
+
 displayTareas(tareasList);
