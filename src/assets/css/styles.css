@@ -148,6 +148,7 @@ input[type="checkbox"] {
 .fa-pen-to-square {
   color: #8DD7FF;
   font-size: 3rem;
+  padding-right: 1.25rem;
 }
 
 .fa-pen-to-square:hover {

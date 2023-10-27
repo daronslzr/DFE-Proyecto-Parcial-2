@@ -63,6 +63,7 @@ input[type="checkbox"]{
 .fa-pen-to-square{
  color: $colorAcento;
  font-size: 3rem;
+ padding-right: 1.25rem;
 
  &:hover{
     color: darken($colorAcento, 10%);
