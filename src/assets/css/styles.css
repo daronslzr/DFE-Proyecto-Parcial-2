@@ -145,6 +145,10 @@ input[type="checkbox"] {
   color: #666666;
 }
 
+.tarea-id {
+  display: none;
+}
+
 .fa-pen-to-square {
   color: #8DD7FF;
   font-size: 3rem;

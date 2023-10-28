@@ -60,6 +60,10 @@ input[type="checkbox"]{
     color: lighten($negro, 40%);
 }
 
+.tarea-id{
+    display: none;
+}
+
 .fa-pen-to-square{
  color: $colorAcento;
  font-size: 3rem;
