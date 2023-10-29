@@ -181,6 +181,7 @@ input[type="checkbox"] {
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 40%;
+  flex-direction: column;
 }
 
 .modal h2 {
@@ -204,7 +205,13 @@ input[type="checkbox"] {
   border: 2px solid #B1AFFF;
 }
 
+#guardarCambiosBoton {
+  display: none;
+  margin-top: 1rem;
+}
+
 #eliminarTareaBoton {
+  display: none;
   background-color: #FFA69C;
   margin-top: 1rem;
 }

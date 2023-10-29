@@ -1,6 +1,6 @@
 //#region CLASE TAREA   
 class Tarea {
-    constructor(id,title, description, completed, priority, tag, dueDate) {
+    constructor(id, title, description, completed, priority, tag, dueDate) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -58,19 +58,29 @@ function displayTareas(tareas) {
         tareasBody.appendChild(card);
     })
 
-    initEliminarTareaControlador();
+    initEditarTareaControlador();
 }
 
-function initEliminarTareaControlador(){
+function initEditarTareaControlador() {
     document.querySelectorAll('.editarBoton').forEach(boton => {
         boton.addEventListener('click', () => {
             const tareaId = boton.getAttribute('tarea-id');
-            editarTarea(tareaId);
+            abrirTarea(tareaId);
         })
     })
 }
 
-function refrescarTareas(){
+function editarBotones(tareaId, tareaCompleted) {
+    document.getElementById('eliminarTareaBoton').addEventListener('click', () => {
+        eliminarTarea(tareaId);
+    });
+    document.getElementById('guardarCambiosBoton').addEventListener('click', () => {
+        //eliminarTarea(tareaId);
+        procesarEnvioTareaEditada(tareaId, tareaCompleted);
+    });
+}
+
+function refrescarTareas() {
     const tareasBody = document.getElementById('tareas-container');
     tareasBody.innerHTML = '';
     getTareas();
@@ -87,7 +97,7 @@ function initAgregarTareaControlador() {
         cerrarAgregarTareaModal();
     });
 
-    document.getElementById('tarea-form').addEventListener('submit', event => {
+    document.getElementById('agregarTareaBoton').addEventListener('click', event => {
         event.preventDefault();
         procesarEnvioTarea();
     });
@@ -96,13 +106,17 @@ function initAgregarTareaControlador() {
 function abrirAgregarTareaModal() {
     document.getElementById('tarea-form').reset();
     document.getElementById('modal-background').style.display = 'block';
-    document.getElementById('modal').style.display = 'block';
+    document.getElementById('modal').style.display = 'flex';
 }
 
 function cerrarAgregarTareaModal() {
     document.getElementById('tarea-form').reset();
     document.getElementById('modal-background').style.display = 'none';
     document.getElementById('modal').style.display = 'none';
+    document.getElementById('agregarTareaBoton').style.display = 'block';
+    document.getElementById('guardarCambiosBoton').style.display = 'none';
+    document.getElementById('eliminarTareaBoton').style.display = 'none';
+
 }
 
 
@@ -127,40 +141,91 @@ function procesarEnvioTarea() {
     enviarTarea(tareaNueva);
 }
 
-function editarTareaEnModal(tarea){
+function procesarEnvioTareaEditada(tareaId, tareaCompleted) {
+    const title = document.getElementById('titulo-field').value;
+    const description = document.getElementById('descripcion-field').value;
+    const completed = tareaCompleted;
+    const priority = document.getElementById('prioridad-field').value;
+    const tag = document.getElementById('tag-field').value;
+    const dueDate = document.getElementById('date-field').value;
+
+    const tareaNueva = new Tarea(
+        tareaId,
+        title,
+        description,
+        completed,
+        priority,
+        tag,
+        dueDate
+    );
+
+    editarTarea(tareaNueva);
+}
+
+
+function editarTareaEnModal(tarea) {
     abrirAgregarTareaModal();
+    document.getElementById('agregarTareaBoton').style.display = 'none';
+    document.getElementById('guardarCambiosBoton').style.display = 'block';
+    document.getElementById('eliminarTareaBoton').style.display = 'block';
+
     document.getElementById('titulo-field').value = tarea.title;
     document.getElementById('descripcion-field').value = tarea.description;
     document.getElementById('prioridad-field').value = tarea.priority;
     document.getElementById('tag-field').value = tarea.tag;
     document.getElementById('date-field').value = tarea.dueDate;
+
+    editarBotones(tarea.id, tarea.completed);
 }
 //#endregion MODAL
 
 //#region CONSUMO DE DATOS DESDE API
 function enviarTarea(tarea) {
     fetchAPI(`${apiURL}/tasks`, 'POST', tarea)
-    .then(() => {
+        .then(() => {
             cerrarAgregarTareaModal();
             refrescarTareas();
             //window.alert(`Tarea ${tarea.id} creada correctamente.`);
         });
 }
 
-function getTareas(){
+function getTareas() {
     fetchAPI(`${apiURL}/tasks`, 'GET')
-    .then(data => {
-        const tareasList = mapAPIToTasks(data);
-        displayTareas(tareasList);
-    })
+        .then(data => {
+            const tareasList = mapAPIToTasks(data);
+            displayTareas(tareasList);
+        })
 }
 
-function editarTarea(tareaId){
+function abrirTarea(tareaId) {
     fetchAPI(`${apiURL}/tasks/${tareaId}`, 'GET')
-    .then(tarea => {
-        editarTareaEnModal(tarea);
-    })
+        .then(tarea => {
+            editarTareaEnModal(tarea);
+        })
 }
+
+function editarTarea(tarea) {
+    fetchAPI(`${apiURL}/tasks/${tarea.id}`, 'PUT', tarea)
+        .then(() => {
+            window.alert("Tarea editada");
+            cerrarAgregarTareaModal();
+            refrescarTareas();
+        })
+}
+
+function eliminarTarea(tareaId) {
+    const confirm = window.confirm(`¿Estás seguro de que deseas eliminar esta tarea?`);
+
+    if (confirm) {
+        fetchAPI(`${apiURL}/tasks/${tareaId}`, 'DELETE')
+            .then(() => {
+                window.alert("Tarea eliminada");
+                cerrarAgregarTareaModal();
+                refrescarTareas();
+            });
+    }
+}
+
 //#endregion CONSUMO DE DATOS DESDE API
 
 //#region INICIALIZACION

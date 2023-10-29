@@ -22,6 +22,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     //overflow-y: scroll;
     width: 40%;
+    flex-direction: column;
 
     h2{
         margin-bottom: 1rem;
@@ -45,7 +46,13 @@
     border: 2px solid $colorPrincipal;
 }
 
+#guardarCambiosBoton{
+    display: none;
+    margin-top: 1rem;
+}
+
 #eliminarTareaBoton{
+    display: none;
     background-color: $colorCritico;
     margin-top: 1rem;
 
