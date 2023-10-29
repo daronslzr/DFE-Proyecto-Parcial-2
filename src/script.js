@@ -30,11 +30,7 @@ class TareaCompletada {
         this.completed = completed;
     };
 }
-//#endregion CLASE TAREA   
-
-/*const tarea1= new Tarea(1,"Tarea Front","Proyecto del Segundo Parcial",false,"Alta","DFE-2-2023",Date("2022-03-25"));
-const tarea2= new Tarea(2,"Tarea DVJ","Smash Friends",false,"Media","DVJ-2-2023",Date("2023-08-25"));
-const tareasList = [tarea1,tarea2];*/
+//#endregion CLASE TAREA 
 
 //#region MOSTRAR TAREAS
 function displayTareas(tareas) {
@@ -63,6 +59,7 @@ function displayTareas(tareas) {
         `;
         tareasBody.appendChild(card);
         cambiarCheckbox(card,tarea);
+        cambiarColorCard(card,tarea);
     })
 
     initEditarTareaControlador();
@@ -70,10 +67,20 @@ function displayTareas(tareas) {
 }
 
 function cambiarCheckbox(card,tarea){
+    //Checa el valor de Completed y selecciona o no el checkbox
     if(tarea.completed == true){
         card.querySelector('.checkboxEstatus').checked = true;
     }else{
         card.querySelector('.checkboxEstatus').checked = false;
+    }
+}
+
+function cambiarColorCard(card,tarea){
+    //Checa el nivel de prioridad y cambia el color dependiendo del nivel de prioridad
+    if(tarea.priority == "Alta"){
+        card.style.backgroundColor = "#FFA69C";
+    }else if(tarea.priority == "Media"){
+        card.style.backgroundColor = "#FDFDBD";
     }
 }
 
@@ -263,7 +270,7 @@ function eliminarTarea(tareaId) {
 function marcarTareaCompletada(tareaId, completado) {
     fetchAPI(`${apiURL}/tasks/${tareaId}`, 'PUT', completado)
         .then(() => {
-            //window.alert("Tarea completada");
+            window.alert("Estado de tarea cambiado");
             //refrescarTareas();
         })
 }

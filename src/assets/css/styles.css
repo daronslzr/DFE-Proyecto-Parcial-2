@@ -19,10 +19,6 @@ main {
   background-color: #FFF;
 }
 
-section {
-  padding-top: 2rem;
-}
-
 /*#endregion GENERAL*/
 /*#region ENCABEZADOS*/
 h1,
@@ -75,11 +71,9 @@ header img {
 #agregarNota-container {
   width: 100%;
   height: auto;
-  background-color: #f2f2f2;
   display: flex;
   justify-content: right;
   align-items: center;
-  padding: 1rem;
   border-radius: 5px;
 }
 
