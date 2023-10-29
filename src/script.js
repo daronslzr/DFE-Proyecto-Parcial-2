@@ -24,6 +24,12 @@ function mapAPIToTasks(data) {
         );
     });
 }
+
+class TareaCompletada {
+    constructor(completed) {
+        this.completed = completed;
+    };
+}
 //#endregion CLASE TAREA   
 
 /*const tarea1= new Tarea(1,"Tarea Front","Proyecto del Segundo Parcial",false,"Alta","DFE-2-2023",Date("2022-03-25"));
@@ -43,7 +49,7 @@ function displayTareas(tareas) {
                         <p class="tag">${tarea.tag}</p>
                     </div>
                     <div class="informacionTarea">
-                        <input type="checkbox" class="checkboxEstatus">
+                        <input type="checkbox" class="checkboxEstatus" tarea-id="${tarea.id}">
                         <div class="descripcionTarea">
                             <div class="tituloDescripcion">
                                 <p class="titulo">${tarea.title}</p>
@@ -56,9 +62,37 @@ function displayTareas(tareas) {
                     </div>
         `;
         tareasBody.appendChild(card);
+        cambiarCheckbox(card,tarea);
     })
 
     initEditarTareaControlador();
+    initTareaCompletadaControlador();
+}
+
+function cambiarCheckbox(card,tarea){
+    if(tarea.completed == true){
+        card.querySelector('.checkboxEstatus').checked = true;
+    }else{
+        card.querySelector('.checkboxEstatus').checked = false;
+    }
+}
+
+function initTareaCompletadaControlador() {
+    document.querySelectorAll('.checkboxEstatus').forEach(checkbox => {
+        //Checa si un checkbox ha sido activado o desactivado
+        checkbox.addEventListener('click', () => {
+            const tareaId = checkbox.getAttribute('tarea-id');
+            if (checkbox.checked) {
+                console.log('Hay una casilla seleccionada');
+                const completado = new TareaCompletada(true);
+                marcarTareaCompletada(tareaId, completado);
+            } else {
+                console.log('No esta seleccionada la casilla');
+                const completado = new TareaCompletada(false);
+                marcarTareaCompletada(tareaId, completado);
+            }
+        })
+    })
 }
 
 function initEditarTareaControlador() {
@@ -224,6 +258,14 @@ function eliminarTarea(tareaId) {
                 refrescarTareas();
             });
     }
+}
+
+function marcarTareaCompletada(tareaId, completado) {
+    fetchAPI(`${apiURL}/tasks/${tareaId}`, 'PUT', completado)
+        .then(() => {
+            //window.alert("Tarea completada");
+            //refrescarTareas();
+        })
 }
 
 //#endregion CONSUMO DE DATOS DESDE API
